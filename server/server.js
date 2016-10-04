@@ -29,7 +29,8 @@ app.get('/', function (req, res) {
     // Product.find(function (err, products) {
     //     res.send(products);
     // });
-    res.send('hello world');
+    // res.send('hello world');
+    res.sendfile('/app/public/index.html');
 });
 
 app.post('/add', function (req, res) {
