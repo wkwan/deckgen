@@ -3,22 +3,22 @@ var jetbrains = angular.module('jetbrains', []);
 jetbrains.controller('AppCtrl', function ($scope, $http) {
     var app  = this;
     var url = 'http://localhost:3000';
-
-    app.saveProduct = function (newProduct) {
-        $http.post(url + '/add', {name:newProduct}).success(function() {
-            console.log('added product ' + newProduct);
-            loadProducts();
-        });
-    }
-
-    function loadProducts() {
-        $http.get(url).success(function (products) {
-            console.log('got products');
-            app.products = products;
-        });
-    }
-
-    loadProducts();
+    //
+    // app.saveProduct = function (newProduct) {
+    //     $http.post(url + '/add', {name:newProduct}).success(function() {
+    //         console.log('added product ' + newProduct);
+    //         loadProducts();
+    //     });
+    // }
+    //
+    // function loadProducts() {
+    //     $http.get(url).success(function (products) {
+    //         console.log('got products');
+    //         app.products = products;
+    //     });
+    // }
+    //
+    // loadProducts();
 
 
 

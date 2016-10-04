@@ -22,9 +22,9 @@ app.use(bodyParser());
 // });
 
 app.get('/', function (req, res) {
-    Product.find(function (err, products) {
-        res.send(products);
-    });
+    // Product.find(function (err, products) {
+    //     res.send(products);
+    // });
 });
 
 app.post('/add', function (req, res) {
@@ -37,7 +37,7 @@ app.post('/add', function (req, res) {
 });
 
 app.post('/generate', function (req, res) {
-    console.log(req.body);
+    // console.log(req.body);
    res.send({'Excavated Evil' : 2, 'Cabal Shadow Priest' : 1})
 });
 
