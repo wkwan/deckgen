@@ -44,6 +44,7 @@ app.post('/add', function (req, res) {
 
 app.post('/generate', function (req, res) {
     // console.log(req.body);
+   console.log("gen deck");
    res.send({'Excavated Evil' : 2, 'Cabal Shadow Priest' : 1})
 });
 
