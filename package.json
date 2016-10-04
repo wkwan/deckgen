@@ -17,6 +17,9 @@
   "engines": {
     "node": "6.2.2"
   },
+  "scripts": {
+    "start": "node server.js"
+  },
   "author": "",
   "license": "ISC"
 }
