@@ -22,6 +22,7 @@ app.use(bodyParser());
 // });
 
 app.get('/', function (req, res) {
+    console.log("hohohoh");
     // Product.find(function (err, products) {
     //     res.send(products);
     // });
