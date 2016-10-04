@@ -25,6 +25,7 @@ app.get('/', function (req, res) {
     // Product.find(function (err, products) {
     //     res.send(products);
     // });
+    res.render('index');
 });
 
 app.post('/add', function (req, res) {
