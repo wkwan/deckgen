@@ -6,6 +6,9 @@ var bodyParser = require('body-parser');
 app.use(cors());
 app.use(bodyParser());
 
+var port = Number(process.env.PORT || 5000);
+
+
 
 // var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost/jetbrains');
@@ -42,4 +45,4 @@ app.post('/generate', function (req, res) {
    res.send({'Excavated Evil' : 2, 'Cabal Shadow Priest' : 1})
 });
 
-app.listen(3000);
+app.listen(port);
