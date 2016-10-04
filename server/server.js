@@ -7,19 +7,19 @@ app.use(cors());
 app.use(bodyParser());
 
 
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/jetbrains');
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/jetbrains');
 
-var Product = mongoose.model('Product', {name: String});
-
-var product = new Product({name: 'Webstorm'});
-product.save(function (err) {
-    if (err) {
-        console.log('failed');
-    } else {
-        console.log('saved');
-    }
-});
+// var Product = mongoose.model('Product', {name: String});
+//
+// var product = new Product({name: 'Webstorm'});
+// product.save(function (err) {
+//     if (err) {
+//         console.log('failed');
+//     } else {
+//         console.log('saved');
+//     }
+// });
 
 app.get('/', function (req, res) {
     Product.find(function (err, products) {
@@ -28,11 +28,11 @@ app.get('/', function (req, res) {
 });
 
 app.post('/add', function (req, res) {
-    var name = req.body.name;
-    var product = new Product({name: name});
-    product.save(function (err) {
-        res.send();
-    });
+    // var name = req.body.name;
+    // var product = new Product({name: name});
+    // product.save(function (err) {
+    //     res.send();
+    // });
 
 });
 
