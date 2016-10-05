@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 app.use(cors());
 app.use(bodyParser());
 
-var port = 5000;
+var port = process.env.PORT || 5000;
 
 // var index = require('./routes/index');
 
