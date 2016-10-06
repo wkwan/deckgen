@@ -2,8 +2,8 @@ var jetbrains = angular.module('jetbrains', []);
 
 jetbrains.controller('AppCtrl', function ($scope, $http) {
     var app  = this;
-    var url = 'http://localhost:5000';
-    // var url = 'http://sheltered-tor-55228.herokuapp.com'
+    // var url = 'http://localhost:5000';
+    var url = 'http://sheltered-tor-55228.herokuapp.com'
     //
     // app.saveProduct = function (newProduct) {
     //     $http.post(url + '/add', {name:newProduct}).success(function() {
