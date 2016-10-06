@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var spawn = require('child_process').spawn;
 
 app.use(cors());
 app.use(bodyParser());
@@ -50,6 +51,12 @@ app.post('/add', function (req, res) {
 app.post('/generate', function (req, res) {
     // console.log(req.body);
    console.log("gen deck");
+   var process = spawn('python',[__dirname + "/brain.py"]);
+   console.log('spawned');
+   process.stdout.on('data', function (data){
+      console.log('got back ' + data);
+   });
+
    res.send({'Excavated Evil' : 2, 'Cabal Shadow Priest' : 1})
 });
 
