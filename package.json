@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "synaptic": "^1.0.8"
+  },
   "devDependencies": {
     "body-parser": "^1.15.2",
     "bower": "^1.7.9",
@@ -12,13 +14,10 @@
     "mongoose": "^4.6.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "engines": {
     "node": "6.2.2"
-  },
-  "scripts": {
-    "start": "node server.js"
   },
   "author": "",
   "license": "ISC"
