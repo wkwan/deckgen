@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
-// var spawn = require('child_process').spawn;
+var spawn = require('child_process').spawn;
 
 app.use(cors());
 app.use(bodyParser());
@@ -10,6 +10,11 @@ app.use(bodyParser());
 var port = process.env.PORT || 5000;
 
 var synaptic = require('synaptic');
+var Neuron = synaptic.Neuron,
+    Layer = synaptic.Layer,
+    Network = synaptic.Network,
+    Trainer = synaptic.Trainer,
+    Architect = synaptic.Architect;
 
 // var index = require('./routes/index');
 
@@ -76,11 +81,11 @@ Perceptron.prototype.constructor = Perceptron;
 app.post('/generate', function (req, res) {
     // console.log(req.body);
    console.log("gen deck");
-   // var process = spawn('python',[__dirname + "/brain.py"]);
-   // console.log('spawned');
-   // process.stdout.on('data', function (data){
-   //    console.log('got back ' + data);
-   // });
+   var process = spawn('python',[__dirname + "/brain.py"]);
+   console.log('spawned');
+   process.stdout.on('data', function (data){
+      console.log('got back ' + data);
+   });
 
    var myPerceptron = new Perceptron(2,3,1);
    var myTrainer = new Trainer(myPerceptron);
