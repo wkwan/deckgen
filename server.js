@@ -81,18 +81,59 @@ Perceptron.prototype.constructor = Perceptron;
 app.post('/generate', function (req, res) {
     // console.log(req.body);
    console.log("gen deck");
-   var process = spawn('python',[__dirname + "/brain.py"]);
-   console.log('spawned');
-   process.stdout.on('data', function (data){
-      console.log('got back ' + data);
+   // var process = spawn('python',[__dirname + "/brain.py"]);
+   // console.log('spawned');
+   // process.stdout.on('data', function (data){
+   //    console.log('got back ' + data);
+   // });
+
+   // var myPerceptron = new Perceptron(2,3,1);
+   // var myTrainer = new Trainer(myPerceptron);
+   //
+   // myTrainer.XOR(); // { error: 0.004998819355993572, iterations: 21871, time: 356 }
+
+   // console.log(myPerceptron.activate([0,0])); // 0.0268581547421616
+
+   var myLSTM = new Architect.LSTM(2,6,1)
+   var trainingSet = [
+      {
+         input: [0,3],
+         output: [0]
+      },
+      {
+         input: [0,1],
+         output: [1]
+      },
+      {
+         input: [1,0],
+         output: [1]
+      },
+      {
+         input: [1,1],
+         output: [0]
+      },
+   ]
+
+   var trainer = new Trainer(myLSTM);
+
+   trainer.train(trainingSet,{
+      rate: .1,
+      iterations: 20000,
+      error: .005,
+      shuffle: true,
+      log: 1000,
+      cost: Trainer.cost.CROSS_ENTROPY
    });
 
-   var myPerceptron = new Perceptron(2,3,1);
-   var myTrainer = new Trainer(myPerceptron);
+   console.log("activate the lstm " +  myLSTM.activate([0, 2]));
+   console.log("activate the lstm " +  myLSTM.activate([0, 2]));
+   console.log("activate the lstm " +  myLSTM.activate([0, 2]));
+   console.log("activate the lstm " +  myLSTM.activate([0, 2]));
+   console.log("activate the lstm " +  myLSTM.activate([0, 2]));
+   console.log("activate the lstm " +  myLSTM.activate([0, 2]));
+   console.log("activate the lstm " +  myLSTM.activate([0, 2]));
+   console.log("activate the lstm " +  myLSTM.activate([0, 2]));
 
-   myTrainer.XOR(); // { error: 0.004998819355993572, iterations: 21871, time: 356 }
-
-   console.log(myPerceptron.activate([0,0])); // 0.0268581547421616
 
    res.send({'Excavated Evil' : 2, 'Cabal Shadow Priest' : 1})
 });
